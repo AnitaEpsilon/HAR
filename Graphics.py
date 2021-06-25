@@ -5,15 +5,15 @@ import os
 import numpy as np
 
 
-# Function _create_plot_ realization:
+# Function create_plot realization:
 
-# Function _create_plot_ plots metrics _loss_, _accuracy_, _recall_ и _precision_.
+# Function create_plot plots metrics: loss, accuracy, recall and precision.
 # Arguments:
 # 
-# * _path_ - input directory pathway ,
-# * _list_of_files_ - list of files with metric values,
-# * _locs_ - legend pozitions list,
-# * _colors_ - list of colors.
+# * path - input directory pathway ,
+# * list_of_files - list of files with metric values,
+# * locs - legend pozitions list,
+# * colors - list of colors.
 
 
 
