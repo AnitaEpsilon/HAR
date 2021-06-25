@@ -9,6 +9,8 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten
 from keras.layers import Conv2D, MaxPooling2D
 
+
+
 def initial_model(input_shape):
   initial_model = models.Sequential()
   initial_model.add(Conv2D(32, kernel_size=(5, 5), strides=(1, 1),
