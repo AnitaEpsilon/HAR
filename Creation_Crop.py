@@ -16,7 +16,7 @@ from numpy import asarray
 mat = spio.loadmat('full_data.mat', squeeze_me=False)
 
 
-# Function $\textit{data_parser(mat_array)}$ is designed to split the original dataset $\textit{mat_array}$ into two subsets: $\textit{people_metadata}$ (includes information about test subjects, namely their age, sex, height and weight) and $\textit{people_data}$ (includes acceleration data for different motion types)
+# Function data_parser(mat_array) is designed to split the original dataset mat_array into two subsets: people_metadata (includes information about test subjects, namely their age, sex, height and weight) and people_data (includes acceleration data for different motion types)
 
 def data_parser(mat_array):
     '''
@@ -84,7 +84,7 @@ def data_parser(mat_array):
     return people_metadata, people_data
 
 
-# Apply function $\textit{data_parser}$ to the original data:
+# Apply function data_parser to the original data:
 metadata, data = data_parser(mat)
 
 
@@ -123,16 +123,14 @@ number_of_people = data.size
 
 
 
-# ## Function _apply_wavelet_transform_ realization
+# Function apply_wavelet_transform realization
 
-# Function _wavelet_function_ allows to apply CWT to dataset elements
+# Function wavelet_function allows to apply CWT to dataset elements
 # Arguments:
 # 
-# * _coordinate_ - coordinate axis (_0_ - X, _1_ - Y, _2_ - Z, _5_ - magnitude),
-# 
-# * _output_path_ - output director pathway
-# 
-# * _mother_ - mother wavelet with respact to the zero moment order (for example, _mother = pycwt.Paul(m=3)_)
+# * coordinate - coordinate axis (0 - X, 1 - Y, 2 - Z, 5 - magnitude),
+# * output_path - output director pathway
+# * mother - mother wavelet with respact to the zero moment order (for example, mother = pycwt.Paul(m=3))
 
 def apply_wavelet_transform(coordinate, output_path, mother):
 
@@ -171,19 +169,15 @@ def apply_wavelet_transform(coordinate, output_path, mother):
                 plt.savefig(output_path + str(activity) + '_' + str(i) + '_tr' + str(trial) + '.png')   
 
 
-# ## Function _cut_image_ realization
+# Function cut_image realization
 
-# Function _cut_image_ crops white pixels around images. Default parameters correspond to standart image size. If the used images have another size the pozitions of white pixels can be determined via any graphical redactor
+# Function cut_image crops white pixels around images. Default parameters correspond to standart image size. If the used images have another size the pozitions of white pixels can be determined via any graphical redactor
 # Arguments:
 # 
-# * *input_path* - input directory pathway,
-# 
-# * *output_path* - output directory pathway,
-# * *left*, *right*, *top*, *bottom* - primary cropping coordinates
-
-
-
-# $*$ *left_new*, *right_new*, *top_new*, *bottom_new* - secondary cropping coordinates
+# * input_path - input directory pathway,
+# * output_path - output directory pathway,
+# * left, right, top, bottom - primary cropping coordinates
+# * left_new, right_new, top_new, bottom_new - secondary cropping coordinates
 
 
 
