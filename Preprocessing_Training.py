@@ -54,8 +54,7 @@ keras.applications.resnet.ResNet152()
 
 
 # Preprocessings
-
-# List _classes_  consists of 17 types of actions, including 9 ADLs and 8 Falls:
+# List classes  consists of 17 types of actions, including 9 ADLs and 8 Falls:
 
 classes = [
     'StandingUpFS',
@@ -78,13 +77,15 @@ classes = [
 ]
 
 
-# Method _transforms.Compose_ combines methods _transforms.ToTensor_ (converts image with pixel diapason [0, 255] into tensor with [0, 1] diapason) and _transforms.Normalize_ (normalizes images) into a method _transform_:
+# Method transforms.Compose combines methods transforms.ToTensor 
+# (converts image with pixel diapason [0, 255] into tensor with [0, 1] diapason) 
+# and transforms.Normalize (normalizes images) into a method transform:
 
 transform = transforms.Compose([transforms.ToTensor(),
         transforms.Normalize((0.5,), (0.5,))])
 
 
-# Dictionary _dict_classes_ assigns a unique index to every class: 
+# Dictionary dict_classes assigns a unique index to every class: 
 
 dict_classes = {}
 i = 0
@@ -93,18 +94,18 @@ for activity in classes:
     i += 1
 
 
-# Function _preprocess_function_ processes иoriginal images and forms a benchmarked dataset. 
+# Function preprocess_function processes иoriginal images and forms a benchmarked dataset. 
 # Arguments:
 # 
-# * _input_path_ - - input directory pathway,
-# * _sample_width_ - width of cropped images,
-# * _step_ - step of frame shift,
-# * _list_of_folders_ - list of directories with original images,
+# * input_path - input directory pathway,
+# * sample_width - width of cropped images,
+# * step - step of frame shift,
+# * list_of_folders - list of directories with original images,
 #
 # Returns:
 # 
-# * _array_ - tensor of cropped and preprocessed images,
-# * _targets_ - vetor of labels
+# * array - tensor of cropped and preprocessed images,
+# * targets - vetor of labels
 
 
 def preprocess_function(input_path, 
@@ -253,15 +254,15 @@ def preprocess_function(input_path,
 
 # Dataset split
 
-# Function _split_function_ splits dataset into train and test samples. 
+# Function split_function splits dataset into train and test samples. 
 # Arguments:
 # 
-# * _array_ - original array of features,
-# * _targets_ - vector of labels,
-# * _test_size_ - test sample fraction (0.2 by default),
-# * _random_state_ - random state value (26 by defaut).
+# * array - original array of features,
+# * targets - vector of labels,
+# * test_size - test sample fraction (0.2 by default),
+# * random_state - random state value (26 by defaut).
 # 
-# Function _split_function_ returns train and test samples and corresponing vector of labels:
+# Function split_function returns train and test samples and corresponing vector of labels:
 # 
 # * X_train, 
 # * X_test, 
@@ -289,7 +290,7 @@ def split_function(array, targets, test_size=0.20, random_state=26):
 
 # Now we build neural network
 
-# _my_callback_ is a daughter class of the class _callbacks_:
+# my_callback is a daughter class of the class callbacks:
 
 class my_callback(tf.keras.callbacks.Callback):
     
@@ -324,17 +325,22 @@ class my_callback(tf.keras.callbacks.Callback):
             df.to_csv("metrics.csv", index=False) 
 
 
-# Function _create_and_run_model_ builds and trains a neural network and creates a file _metrics.csv_ containing metrics.
+# Function create_and_run_model builds and trains a neural network and creates a file metrics.csv containing metrics.
 # Arguments:
 # 
-# * _X_train_, _X_test_, _y_train_, _y_test_ - train and test samples and corresponding vectors of labels,
-# * _res_model_ - ResNet model from Keras (_keras.applications.resnet_v2.ResNet50V2_, _keras.applications.resnet_v2.ResNet101V2_, _keras.applications.resnet_v2.ResNet152V2_, _keras.applications.resnet.ResNet50_, _keras.applications.resnet.ResNet101_ or _keras.applications.resnet.ResNet152_),
-# * _number_of_classes_ - number of different types of activity, 
-# * _height_ - input image height,
-# * _width_ - input image width,
-# * _dimensions_ - number of channels of input images,
-# * _batch_size_ - batch size,
-# * _epochs_ - number of epochs.
+# * X_train, X_test, y_train, y_test - train and test samples and corresponding vectors of labels,
+# * res_model - ResNet model from Keras (keras.applications.resnet_v2.ResNet50V2, 
+#                                        keras.applications.resnet_v2.ResNet101V2, 
+#                                        keras.applications.resnet_v2.ResNet152V2,
+#                                        keras.applications.resnet.ResNet50,
+#                                        keras.applications.resnet.ResNet101, 
+#                                        keras.applications.resnet.ResNet152),
+# * number_of_classes - number of different types of activity, 
+# * height - input image height,
+# * width - input image width,
+# * dimensions - number of channels of input images,
+# * batch_size - batch size,
+# * epochs - number of epochs.
 
 
 def create_and_run_model(X_train, X_test, y_train, y_test,
