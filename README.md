@@ -3,18 +3,14 @@ Human Activity Recognition using Continuous Wavelet Transform and Convolutional 
 
 
 ## Introduction
-The problem in question is _human activity recognition based on accelerometer signal using continuous wavelet transform and convolutional neural networks_. All the useful code is split into four files. _Function_implementation_ is, in fact, a brief instruction of how to use the program. All the files and the data file _full_data.mat_ should be placed in the same directory. All the files are described below.
 
-## Creation_Crop.ipynb
-
+The problem in question is _human activity recognition based on accelerometer signal using continuous wavelet transform and convolutional neural networks_. All the code is split into five files: _main.ipynb_, _Creation_Crop.py_, _Models.py_, _Preprocessing_Training.py_ and _Graphics.py_. This files should be placed in the same folder with the dataset file _full_data.mat_ (from _UniMiB SHAR_ dataset). Files with code are described below.
 
 
+## Creation_Crop.py
 
+_Creation_Crop.py_ contains functions for WT application and primary image crop. The output files of these functions should be saved into separate folders.
 
-_Creation_Crop.ipynb_ является первым в хронологической последовательности файлов. С его помощью можно генерировать изображения, представляющие собой результаты применения непрерывного вейвлет преобразования к исходным сигналам, и обрезать белую рамку вокруг этих изображений. Функции, описанные в файле _Creation_Crop.ipynb_ могут быть импортированы из файла _Creation_Crop.py_
-
-Для запуска необходим файл _full_data.mat_.
-Результат каждого вызова функций _apply_wavelet_transform_ и _cut_image_ необходимо хранить в отдельной директории.
 
 ## Preprocessing_Training.ipynb
 
