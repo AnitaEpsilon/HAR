@@ -22,14 +22,11 @@ _Creation_Crop.py_ contains functions for WT application and primary image crop.
 _Preprocessing_Training.py_ contains functions used for secondary image crop (with a shift or without it) and model training. The functions from these file are desisigned to deal with images obtained via using the _cut_image_ from the previous notebook. In result of fuction implementation files _metrics.csv_ are created. User-defined file naming is not provided, so user has to rename them manually.
 
 
-## Graphics.ipynb
+## Graphics.py
 
-_Graphics.ipynb_ - вспомогательный ноутбук. В нём описана функция, позволяющая быстро и легко строить графики для значений метрик (необходимо подавать эти файлы программе в виде файлом расширения _.csv_, можно переименованных), посчитанных в предыдущем ноутбуке. Эта функция может быть импортирована из файла _Graphics.py_.
+_Graphics.ipynb_ contains a function *create_plot* designed to plot metrics using files _metrics.csv_ or their renamed versions.
 
-# Models.py
 
-Из данного файла могут быть импортированы свёрточные модели, используемые в ходе выполнения программы.
+## Models.py
 
-# Function_implementation
-
-Это основной файл программы. В нём происходит импорт всех необходимых функций и их применение для создания изображений, обучения моделей, построения графиков и т. д.
+_Models.py_ contains functions which allow to create various convolutional neural networks which are used in the course of the studying.
